@@ -1,0 +1,53 @@
+<%= form_with(model: comic) do |form| %>
+  <% if comic.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% comic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :"完結", style: "display: block"%>
+    <%= form.check_box :conclusion %>
+  </div>
+
+  <div>
+    <%= form.label :"タイトル", style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :"著者", style: "display: block" %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :"出版社", style: "display: block" %>
+    <%= form.text_field :publisher %>
+  </div>
+
+  <div>
+    <%= form.label :"所持巻数", style: "display: block" %>
+    <%= form.text_field :start_volume , style: "width: 40px" %>巻
+    ~
+    <%= form.text_field :end_volume , style: "width: 40px "%>巻
+    
+  </div>
+
+  <div>
+    <%= form.label :"未所持冊数",style: "display:block"%>
+    <%= form.text_field:nonpossession,style: "width:40px"%>冊
+  </div>
+
+  <div>
+    <%= form.label :"メモ", style: "display: block" %>
+    <%= form.text_field :memo , style: "width: 100%,height: 100%" %>
+  </div>
+
+  <div>
+    <%= form.submit "更新"%>
+  </div>
+<% end %>

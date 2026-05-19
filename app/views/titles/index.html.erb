@@ -1,0 +1,35 @@
+<%= link_to "一覧に戻る",comics_path %>&nbsp;&nbsp;&nbsp;
+
+<%= link_to "完結", url_for(conclusion: 'true')%>&nbsp;&nbsp;&nbsp;
+<%= link_to "未完結",url_for(conclusion: 'false')%>&nbsp;&nbsp;&nbsp;
+<%= link_to "全て表示",titles_path%>&nbsp;&nbsp;&nbsp;
+<button id="copyButton">コピー</button>
+
+<ul>
+<h1><%=now_what%></h1>
+  <% @titles.each do |title| %>
+    <li><%= "#{title.title} #{title.start_volume}"%>
+    <%="~"if title.start_volume&&title.end_volume%>
+    <%= "#{title.end_volume}" %>
+    <%= "#{title.memo}"%>
+    </li>
+
+  <% end %>
+</ul>
+
+<script>
+  document.getElementById("copyButton").addEventListener("click", async function() {
+    let conclusionStatus = "<%= @titles.map(&:conclusion).uniq.size == 1 ? (@titles.first.conclusion ? '完結' : '未完結') : '' %>";
+
+    let text = conclusionStatus ? `${conclusionStatus}\n` : '';  
+    text += `<%= @titles.map { |title| "#{title.title} #{title.start_volume}-#{title.end_volume} #{title.memo}" }.join("\n") %>`;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("コピーしました！");
+    } catch (err) {
+      console.error("コピーに失敗しました: ", err);
+      alert("コピーに失敗しました。");
+    }
+  });
+</script>

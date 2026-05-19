@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @comic.title %><%= "(完結)" if @comic.conclusion %></h1>
+
+<%= render @comic %>
+
+<div>
+  <%= link_to "編集", edit_comic_path(@comic) %> |
+  <%= link_to "一覧に戻る", comics_path %>
+</div>

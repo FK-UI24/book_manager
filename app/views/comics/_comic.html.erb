@@ -1,0 +1,37 @@
+<div id="<%= dom_id comic %>">
+
+  <p>
+    <strong>
+    所持巻数:
+    <%=comic.start_volume%>
+    <%="巻" if comic.start_volume%>
+    <%="~" if comic.start_volume&&comic.end_volume%>
+    <%=comic.end_volume%>
+    <%="巻" if comic.end_volume%>
+    </strong>
+
+    未所持冊数:
+    <%=comic.nonpossession%>
+    <%="冊"%>
+    </strong>    
+  </p>
+
+  <p><strong>合計:</strong><%=comic.individualtotal%><%="冊" if comic.individualtotal%></p>
+
+  <p>
+    <strong>著者:</strong>
+    <%= comic.author %>
+    &nbsp;&nbsp;&nbsp;
+    <strong>出版社:</strong>
+    <%= comic.publisher %>
+  </p>
+
+  <p>
+    <strong><%="メモ:" if comic.memo %></strong>
+    <%= comic.memo if comic.memo%>
+  </p>
+
+  <p><strong>最終更新日:</strong><%= comic.last_update.in_time_zone('Asia/Tokyo').strftime("%Y年%m月%d日%H時%M分%S秒") if comic.last_update!=nil%></p>
+
+
+</div>
