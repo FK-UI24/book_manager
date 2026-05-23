@@ -7,6 +7,7 @@ CRUD(Create,Read,Update,Delete)機能を用いて実装しています。<br>
 また完結/未完結の設定や絞り込みや、タイトル検索機能なども実装してます。<br>
 
 ## Sytem Overview
+本システムはこのリポジトリだけで動作します。
 本システムはRailsのMVCモデルに基づいて構成されています。
 - Model：書籍データ管理
 - View：画面表示
