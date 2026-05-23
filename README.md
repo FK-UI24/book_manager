@@ -1,24 +1,17 @@
-# README
+# book_Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+Railsを用いて作成した書籍管理Webアプリケーションです。<br>
+CRUD(Create,Read,Update,Delete)機能を用いて実装しています。<br>
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+## Sytem Overview
+本システムはUnityプロジェクトのみで構成されています。
 
-* Configuration
+## Teck Stack
+- Rails
+- ruby
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## What This Repository Contain
+- Ruby on Railsプロジェクト
